@@ -31,7 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn></NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -41,7 +41,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn></NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
@@ -52,7 +52,33 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\虚拟相机教程\Scripts\Hello.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\09_Reflection\ReflectionDemo.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\04_Inheritance\InheritanceAdapter.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\08_MonoBehaviour\MonoBehaviourAdapter.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\12_Performance\Performance.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\JsonMapper.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\01_HelloWorld\HelloWorld.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\11_ValueTypeBinding\QuaternionBinder.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\08_MonoBehaviour\MonoBehaviourDemo.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\07_Coroutine\CoroutineAdapter.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\03_Delegate\DelegateDemo.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\02_Invocation\Invocation.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\JsonException.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\05_CLRRedirection\CLRRedirectionDemo.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\04_Inheritance\Inheritance.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\JsonData.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\07_Coroutine\CoroutineDemo.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\Lexer.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\11_ValueTypeBinding\Vector2Binder.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\06_CLRBinding\CLRBindingDemo.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\11_ValueTypeBinding\Vector3Binder.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\JsonMockWrapper.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\10_LitJson\LitJsonDemo.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\ParserToken.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\JsonWriter.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\Scripts\Examples\11_ValueTypeBinding\ValueTypeBindingDemo.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\IJsonWrapper.cs" />
+     <Compile Include="Assets\Samples\ILRuntime\2.1.0\Demo\LitJson\JsonReader.cs" />
      <None Include="Assets\虚拟相机教程\AHProxy\PlanetShader\Shader\PlanetShaderHi.shader" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.36f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -281,6 +307,15 @@
  </Reference>
  <Reference Include="UnityEditor.UnityConnectModule">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.36f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
+ </Reference>
+ <Reference Include="ILRuntime.Mono.Cecil.Mdb">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/PackageCache/com.ourpalm.ilruntime@2.1.0/Plugins/ILRuntime.Mono.Cecil.Mdb.dll</HintPath>
+ </Reference>
+ <Reference Include="ILRuntime.Mono.Cecil">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/PackageCache/com.ourpalm.ilruntime@2.1.0/Plugins/ILRuntime.Mono.Cecil.dll</HintPath>
+ </Reference>
+ <Reference Include="ILRuntime.Mono.Cecil.Pdb">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/PackageCache/com.ourpalm.ilruntime@2.1.0/Plugins/ILRuntime.Mono.Cecil.Pdb.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.36f1c1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -627,35 +662,38 @@
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.36f1c1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
  </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <Reference Include="Cinemachine">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
  <Reference Include="com.unity.cinemachine.editor">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
- <Reference Include="Cinemachine">
- <HintPath>/Users/beile/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="ILRuntime">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/ILRuntime.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PlasticSCM.Editor">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Users/beile/Documents/RiderProjects/NewSk_Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
