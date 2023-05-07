@@ -89,6 +89,7 @@ public class Invocation : MonoBehaviour
         Debug.Log("调用带参数的静态方法");
         appdomain.Invoke("HotFix_Project.InstanceClass", "StaticFunTest2", null, 123);
 
+        //笔记: 性能比较低，需要通过类名去寻找，然后在寻找方法名
 
         Debug.Log("通过IMethod调用方法");
         //预先获得IMethod，可以减低每次调用查找方法耗用的时间
@@ -97,10 +98,12 @@ public class Invocation : MonoBehaviour
         IMethod method = type.GetMethod("StaticFunTest2", 1);
 
         appdomain.Invoke(method, null, 123);
-
+        //笔记： 这里会123 是一个object[] 这里之后容易有内存分配，GC。。 在update里面就不要用这个
+        
         Debug.Log("通过无GC Alloc方式调用方法");
         using (var ctx = appdomain.BeginInvoke(method))
         {
+            // 手动压栈
             ctx.PushInteger(123);
             ctx.Invoke();
         }
@@ -114,10 +117,10 @@ public class Invocation : MonoBehaviour
         method = type.GetMethod("StaticFunTest2", paramList, null);
         appdomain.Invoke(method, null, 456);
 
-        Debug.Log("实例化热更里的类");
-        object obj = appdomain.Instantiate("HotFix_Project.InstanceClass", new object[] { 233 });
+        Debug.Log("实例化热更里的类"); // 在其他功能中new 一个类
+        object obj = appdomain.Instantiate("HotFix_Project.InstanceClass", new object[] { 233 }); // new object[] { 233 } 构造函数
         //第二种方式
-        object obj2 = ((ILType)type).Instantiate();
+        object obj2 = ((ILType)type).Instantiate(); // Instantiate(object[] args) 这里是可以制定参数
 
         Debug.Log("调用成员方法");
         method = type.GetMethod("get_ID", 0);
